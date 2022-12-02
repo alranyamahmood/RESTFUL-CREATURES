@@ -1,6 +1,32 @@
+
+
+    <h1>My Dinosaurs</h1>
+
+
+<from action="/dinosaurs <%  %> method"="GET">
+
+     <label for="name">Filter by Name: </label>
+
+    <input type="text" name="nameFilter" id="nameFilter"> 
+    <input type="submit" value="search"> 
+
+</from>
+
 <ul>
-   <% myDinos.forEach(dino, idx) => { %>
-<a href="/dinosaurs/<%= idx %>">
- <li><%= dino.name %> is a <%= dino.type %></li>   
-}
+   <% myDinos.forEach((dino, idx) => { %>
+    <li>
+               <a href="/dinosaurs/<%= idx %>">  
+                <%= dino.name %> is a <%= dino.type %>
+
+    </li>
+           
+           <a href="/dinosaurs/edit/<%= idx %>">Edit</a>
+           
+           <form method="POST" action="/dinosaurs/<%= idx %>/?_method=DELETE">
+               <input type="submit" value="Delete Dino">
+           </form>
+       </a>
+   <% }); %>
 </ul>
+
+

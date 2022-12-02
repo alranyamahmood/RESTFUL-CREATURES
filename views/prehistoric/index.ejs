@@ -1,0 +1,27 @@
+    <h1>My prehistoric creatures</h1>
+  
+
+<ul>
+
+    <% myCreature.forEach((creature, idx) => { %>
+
+<li> 
+
+<div>
+
+            <a href="/prehistoric/<%= idx %>"</a>
+
+                 <%= creature.type %>
+</div>
+
+</li>
+           <a href="/prehistoric/edit/<%= idx %>">Edit</a>
+
+            <form method="POST" action="/prehistoric/<%= idx %>/?_method=DELETE">
+                <input type="submit" value="Delete dino">
+            </form>
+
+    <% }); %>
+
+
+ </ul>
